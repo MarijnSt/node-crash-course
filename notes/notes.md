@@ -126,3 +126,51 @@ if (fs.existsSync('./docs/deleteme.txt')) {
     })
 }
 ```
+
+## Streams & buffers
+Data gebruiken vooraleer volledig bestand gelezen is om laadtijd te verkleinen
+Voorbeeld: serie op netflix bekijken = in buffers data downloaden ipv te wachten op volledige aflevering
+
+### Readstream
+Readstream maken:
+```javascript
+const readStream = fs.createReadStream('./docs/blog3.txt')
+```
+* Maakt stream
+* Leest data van gegeven locatie
+
+```javascript
+readStream.on('data', (chunk) => {
+    console.log('---- new chunk ----')
+    console.log(chunk)
+})
+```
+* On is een event listener
+* Luistert naar data event
+* Elke keer dat een chunk van data binnen komt, wordt de callback uitgevoerd
+
+Buffers omzetten in leesbare vorm:
+```javascript
+readStream.on('data', (chunk) => {
+    const readStream = fs.createReadStream('./docs/blog3.txt', { encoding: 'utf8' })
+})
+```
+
+### Writestream
+```javascript
+const writeStream = fs.createWriteStream('./docs/blog4.txt')
+
+readStream.on('data', (chunk) => {
+    writeStream.write('\nNEW CHUNK\n')
+    writeStream.write(chunk)
+})
+```
+* \n = new line
+* Schrijft elke binnenkomende chunk van de readstream hierboven in een ander bestand
+
+### Pipe
+```javascript
+readStream.pipe(writeStream)
+```
+* Shortcut voor te schrijven van een readable stream naar een writeable
+* Alles dat uit readStream komt, meteen schrijven in een writeStream
