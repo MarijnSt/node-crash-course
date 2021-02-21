@@ -22,9 +22,9 @@ Importeren in modules.js:
 ```javascript
 const x = require('./people.js')
 ```
-    * Geeft de console.log
-    * Adres in require is **relative path**
-    * x zelf is een leeg object
+   * Geeft de console.log
+   * Adres in require is **relative path**
+   * x zelf is een leeg object
 
 ### Specifiek deel van bestand exporteren
 In people.js
@@ -39,7 +39,7 @@ module.exports = {
     people, ages
 }
 ```
-* wanneer property en variabele van value dezelfde naam hebben, kan je deze shortcut gebruiken *
+*wanneer property en variabele van value dezelfde naam hebben, kan je deze shortcut gebruiken*
 
 ### Destructuring
 Handige manier om dingen te importeren uit een bestand
@@ -48,8 +48,8 @@ Voorbeeld: people rechtstreeks in variabele importeren
 ```javascript
 const { people } = require('./people.js')
 ```
-    * Haalt people property uit export van people.js
-    * Variabele in modules.js moet dezelfde naam hebben als property in people.js
+   * Haalt people property uit export van people.js
+   * Variabele in modules.js moet dezelfde naam hebben als property in people.js
 
 Meerdere properties importeren:
 ```javascript
@@ -61,4 +61,4 @@ Node heeft ook enkele core modules die je ook kan importeren
 ```javascript
 const os = require('os')
 ```
-* Geeft info over operating system *
+*Geeft info over operating system*
