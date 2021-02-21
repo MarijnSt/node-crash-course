@@ -39,7 +39,7 @@ module.exports = {
     people, ages
 }
 ```
-*wanneer property en variabele van value dezelfde naam hebben, kan je deze shortcut gebruiken*
+* Wanneer property en variabele van value dezelfde naam hebben, kan je deze shortcut gebruiken
 
 ### Destructuring
 Handige manier om dingen te importeren uit een bestand
@@ -61,11 +61,11 @@ Node heeft ook enkele core modules die je ook kan importeren
 ```javascript
 const os = require('os')
 ```
-*Geeft info over operating system*
+* Geeft info over operating system
 
 ## File system
 * Bestanden lezen, maken, verwijderen
-* Directories maken en verwijdere
+* Directories maken en verwijderen
 
 ### fs core module importeren
 ```javascript
@@ -79,7 +79,7 @@ fs.readFile('./docs/blog1.txt', (err, data) => {
     console.log(data.toString())
 })
 ```
-* Async functie: blokkeert code niet, wordt in de 'achtergrond' uitgevoerd en ondertussen worden volgende lijnen code uitgevoerd
+* Async functie: blokkeert code niet, draait in de 'achtergrond' en ondertussen worden volgende lijnen code uitgevoerd
 * Zonder .toString() geeft het een buffer: `<Buffer 45 6c 61 62 61 20 76 72 69 65 6e 74 65 6b 65>`
 
 ### Bestanden schrijven
@@ -99,7 +99,7 @@ fs.mkdir('./assets', (err) => {
     console.log('folder created')
 })
 ```
-*Geeft error als folder al bestaat*
+* Geeft error als folder al bestaat
 
 Controleren of folder al bestaat:
 ```javascript
