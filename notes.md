@@ -74,3 +74,17 @@ Toevoegen aan response via statusCode property
 ```javascript
 res.statusCode = 200
 ```
+
+# Redirects
+Voorbeeld: pagina /about-me verandert naar /about
+
+Op je eigen website kan je links wel vervangen maar andere websites die naar die pagina linken, zullen nog altijd een 404 krijgen
+
+Redirect instellen in routing switch
+```javascript
+case '/about-me':
+    res.statusCode = 301
+    res.setHeader('Location', '/about')
+    res.end()
+    break;
+```

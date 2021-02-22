@@ -4,11 +4,15 @@ const fs = require('fs')
 const server = http.createServer((req, res) => {
     console.log(req.url, req.method)
 
+    //set header
+    res.setHeader('Content-Type', 'text/html')
+
     // res.setHeader('Content-Type', 'text/html')
     // res.write('<p>Elaba vrienteke</p>')
     // res.write('<p>Rebonjour</p>')
     // res.end()
 
+    // routing
     let path = './views'
     switch (req.url) {
         case '/':
@@ -19,14 +23,17 @@ const server = http.createServer((req, res) => {
             path += '/about.html'
             res.statusCode = 200
             break;
+        case '/about-me':
+            res.statusCode = 301
+            res.setHeader('Location', '/about')
+            res.end()
+            break;
         default:
             path += '/404.html'
             res.statusCode = 404
             break;
     }
 
-    //set header
-    res.setHeader('Content-Type', 'text/html')
     //send html file
     fs.readFile(path, (err, data) => {
         if (err) {
