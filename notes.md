@@ -61,3 +61,16 @@ fs.readFile(path, (err, data) => {
     // code
 }
 ```
+
+# Status codes
+Beschrijft type van response dat naar browser wordt gestuurd en hoe succesvol de request was
+* 100 range: informatie voor browser
+* 200 range: succes codes
+* 300 range: redirect codes
+* 400 range: user/client errors
+* 500 range: server errors
+
+Toevoegen aan response via statusCode property
+```javascript
+res.statusCode = 200
+```
