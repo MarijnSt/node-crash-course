@@ -36,3 +36,28 @@ if (err) {
 res.end()
 })
 ```
+
+# Basic routing
+Voorbeeld: verschillende pagina's in views folder
+
+Switch gebruiken voor path naar pagina te geven
+```javascript
+let path = './views'
+switch (req.url) {
+    case '/':
+        path += '/index.html'
+        break;
+    case '/about':
+        path += '/about.html'
+        break;
+    default:
+        path += '/404.html'
+        break;
+}
+```
+Path meegeven in readFile functie
+```javascript
+fs.readFile(path, (err, data) => {
+    // code
+}
+```
